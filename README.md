@@ -86,3 +86,5 @@ The system does not allow for any preservation of statistical distributions that
 If you have a requirement for this sort of processing please feel free to contact me as I have an interest in the area, specifically the injection of noise and other leakage mitigation techniques.
 
 Data leakage may occur as the existing XML document stanzas are not randomized, which could lead to an order based attack. If this is a concern please let me know and I can add this feature.
+
+Sample Nessus scan file is from DefectDojo/sample-scan-files by mtesauro
