@@ -74,15 +74,13 @@ Rudementary sanity checking of the specification rules are done. All parsing is 
 
 Any values that are identified by path or value are double checked and replaced prior to program completion. Efforts are made to avoid replacing substrings by sorting by length prior to full replacement.
 
-The original use case is to allow network and host scans to be shared or processed off-site without revealing potential identifiable, cryptologic or other exploitable information
+The original use case is to allow network and host scans to be shared or processed off-site without revealing potential infrastructure, cryptologic or other exploitable information
 
-The intent was to process Nessus scans and allow data sharing and analysis on a public cloud. In reality the Nessus scans were highly unstructured and potential data leaks were likely. With about 100K existing plugins and almost 100 new ones developed per week, I could not recommend this or any anonymization process for this task. Module output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage
+The original use case is to process Nessus scans and allow data sharing and analysis on a public cloud. However, Nessus scans are unstructured and potential data leaks were possible with about 100K existing plugins and almost 100 new ones developed per week, I recommend removing plugin output and double checking any new tags generated. Plugin output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage for free form text output. The sample config file removes plugin output.
 
-As this process can used on more structured data sets, such as evaluating NLP models, and other ML data sets, I felt it was still useful to place this on github for use by others,
+As this process can used on structured data sets, such as evaluating NLP models, and other ML data sets, I felt it was still useful to place this on github for use by others,
 
-Special note on human trials and other data collection covered by HIPAA. While this process can be used to replace personal names and dates. Again the XML would have to be highly structured
-The system does not allow for any preservation of statistical distributions that would help in any meaningful population analysis. 
-If you have a requirement for this sort of processing please feel free to contact me as I have an interest in the area, specifically the injection of noise and other leakage mitigation techniques.
+Special note on human trials and other data collection covered by HIPAA. While this process can be used to replace personal names and dates. Again the XML would have to be highly structured The system does not allow for any preservation of statistical distributions that would help in any meaningful population analysis.  If you have a requirement for this sort of processing please feel free to contact me as I have an interest in the area, specifically the injection of noise and other leakage mitigation techniques.
 
 Data leakage may occur as the existing XML document stanzas are not randomized, which could lead to an order based attack. If this is a concern please let me know and I can add this feature.
 
