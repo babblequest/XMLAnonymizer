@@ -2,15 +2,15 @@
  In a nutshell this program replaces requested values or attributes with random strings.
    This replacement process can also be reversed by the program.
 
-##Usage
- *python3 is required
-    For Usage instructions use python3 XMLAnonymizer.py -h
+## Usage
+ * python3 is required
+   * For Usage instructions use python3 XMLAnonymizer.py -h
    
- *Anonymize file
-   python3 XMLAnonymizer.py -v -f sample.xml -anonymizedfile anonymized.xml
+ * Anonymize file
+   * python3 XMLAnonymizer.py -v -f sample.xml -anonymizedfile anonymized.xml
  
- *Reverse file
-   python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
+ * Reverse file
+   * python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
 
  Values can be specified as a path consisting of tags, attribute names, attribute values and text values.
  Attribute values and text values may also be replaced in whole or in part via regular expression
