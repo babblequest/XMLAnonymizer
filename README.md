@@ -1,26 +1,26 @@
 # XMLAnonymizer
  * In a nutshell this program replaces requested values or attributes with random strings.
- * This replacement process can also be reversed by the program.
+ * This replacement process can also be reversed using the -reverse flag.
 
-## Usage
- * python3 is required
-   * For Usage instructions use python3 XMLAnonymizer.py -h
+## Usage:
+* python3 is required
+  * For Usage instructions use python3 XMLAnonymizer.py -h
    
- * Anonymize file
-   * python3 XMLAnonymizer.py -v -f sample.xml -anonymizedfile anonymized.xml
+* Anonymize file
+  * python3 XMLAnonymizer.py -v -f sample.xml -anonymizedfile anonymized.xml
  
- * Reverse file
-   * python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
+* Reverse file
+  * python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
 
  Values can be specified as a path consisting of tags, attribute names, attribute values and text values.
  Attribute values and text values may also be replaced in whole or in part via regular expression.
  
  * Configuration File
-   * There are two ways to specify values for replacement
-      * Path 
-         * Path:Report->ReportHost->name:Name_${A}
-      * Value
-         * Value:Nikto.*:Nikto-${U[0,Nikto]}
+  * There are two ways to specify values for replacement
+    * Path 
+      * Path:Report->ReportHost->name:Name_${A}
+    * Value
+       * Value:Nikto.*:Nikto-${U[0,Nikto]}
    
    * The typical rule
      * Path or Value:[Path or Value]:[String pattern to replace]:[String Generator]
@@ -69,7 +69,7 @@
     * Builtin Patterns
       * Builtin patterns can be found in the builtins.txt file
       * You may specify a pattern or generator to be used in your config file
-      *    * Patterns are any legal regular expression
+      *   Patterns are any legal regular expression
               * PATTERN:LOCAL_IP_ADDRESSC:192\.168\.[0-9]{1,3}\.[0-9]{1,3}
       *    Generators can be any legal generator sequence
               * GENERATOR:EXTERNAL_IP_ADDRESSC:${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]}
