@@ -27,7 +27,7 @@
         * Path or Value 
            * The Path specification
               * Path must start with a tag name
-              * Followon path elements may be attribute names, attribute values or text values
+              * Follow on path elements may be attribute names, attribute values or text values
               * Any path elements may be specified with a regular expression following Pythons convention
               * Shorter paths are faster
               * Longer paths take precedence
