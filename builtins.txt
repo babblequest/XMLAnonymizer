@@ -19,7 +19,7 @@ PATTERN:IP6_ADDRESS:(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:
 GENERATOR:IP_DOCUMENTATION:2001:db8:${X[0-FFFF]}:${X[0-FFFF]}
 
 PATTERN:MAC_ADDRESS:[0-9A-Fa-f][0-9A-Fa-f]:[0-9A-Fa-f][0-9A-Fa-f]:[0-9A-Fa-f][0-9A-Fa-f]:[0-9A-Fa-f][0-9A-Fa-f]:[0-9A-Fa-f][0-9A-Fa-f]:[0-9A-Fa-f][0-9A-Fa-f]
-GENERATOR:MAC_ADDRESS:${X[00-FF]}:${X[00-FF]}:${X[00-FF]}:${X[00-FF]}:${X[00-FF]}:${X[00-FF]}
+GENERATOR:MAC_ADDRESS:${X[0-F]}${X[0-F]}:${X[0-F]}${X[0-F]}:${X[0-F]}${X[0-F]}:${X[0-F]}${X[0-F]}:${X[0-F]}${X[0-F]}:${X[0-F]}${X[0-F]}
 
 # Quick code block conversion for RSA crypto
 #RSA:00 9F C1 3C 9C 5F 3E B2 27 12 A6 38 80 C1 55 06 FB E6 7F 55
