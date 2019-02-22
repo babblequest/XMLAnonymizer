@@ -5,10 +5,8 @@
 ## Usage:
 * python3 is required
   * For Usage instructions use python3 XMLAnonymizer.py -h
-   
 * Anonymize file
   * python3 XMLAnonymizer.py -v -f sample.xml -anonymizedfile anonymized.xml
- 
 * Reverse file
   * python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
 
@@ -31,20 +29,17 @@
               * Any path elements may be specified with a regular expression following Pythons convention
               * Shorter paths are faster
               * Longer paths take precedence
-     
-        * The Value specification
+           * The Value specification
               * Value may be any attribute value or text value
               * Values specified as regular expressions following python conventions
               
    * Escape the backslash if needed
      * Any colons within the specification must be escaped using the backslash \:
-     
      * String pattern to replace (optional)
           * You may specify a string pattern to replace a given substring in a value or path
           * If this is not specified the entire text value will be replaced
              * Value:here is the traceroute from\:from.*:RedactedTraceRoute-${U[0,iplist]}
                 * Replace anything following from with RedactedTraceRoute-1
-             
      * String Generator
         * Patterns can be made up of a combination of literal strings and generators
             * ${X}: hexadecimal - Create a hex value 
@@ -58,25 +53,22 @@
                   * ${A[200, hostname]}
             * For oneup values you may specify a starting value and unique name
                * ${U[100, Hostnumber} - value starting at 100 and only incrementing for this value
-               
-          * Generators sequences look like this:
-             * Name_${A} -> Name_aaaaa
-             * No Date ${U[0,date]} -> No Date 0, No Date 1, No Date 2
-             * ${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]} -> mac address
-             * ${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]} -> Local IP Address
-          * Non unique generators. If a generator can not create a unique value an error will occur, as it breaks reversability.
-										
+       * Generators sequences look like this:
+           * Name_${A} -> Name_aaaaa
+           * No Date ${U[0,date]} -> No Date 0, No Date 1, No Date 2
+           * ${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]} -> mac address
+           * ${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]} -> Local IP Address
+       * Non unique generators. If a generator can not create a unique value an error will occur, as it breaks reversability.							
 * Builtin Patterns:
 	* Builtin patterns can be found in the builtins.txt file
 	* You may specify a pattern or generator to be used in your config file
 	* Patterns are any legal regular expression
 		* PATTERN:LOCAL_IP_ADDRESSC:192\.168\.[0-9]{1,3}\.[0-9]{1,3}
-	*    Generators can be any legal generator sequence
-			* GENERATOR:EXTERNAL_IP_ADDRESSC:${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]}
-              
-	* Builtin values are used in the config file by escaping the name with ${}
-   * Value:${MAC_ADDRESS}:${MAC_ADDRESS}
-   * Path:tag->name->traceroute-hop-[0-9]+:${LOCAL_IP_ADDRESSC}
+	* Generators can be any legal generator sequence
+		* GENERATOR:EXTERNAL_IP_ADDRESSC:${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]}     
+    * Builtin values are used in the config file by escaping the name with ${}
+        * Value:${MAC_ADDRESS}:${MAC_ADDRESS}
+        * Path:tag->name->traceroute-hop-[0-9]+:${LOCAL_IP_ADDRESSC}
  
 Rudementary sanity checking of the specification rules are done. All parsing is simply using regular expressions and not a grammar so all errors may not be caught. Use the -v flag to double check rules when creating a new config file.
 
