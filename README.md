@@ -65,43 +65,31 @@
              * ${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]} -> mac address
              * ${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]} -> Local IP Address
           * Non unique generators. If a generator can not create a unique value an error will occur, as it breaks reversability.
-             
-    * Builtin Patterns
-      * Builtin patterns can be found in the builtins.txt file
-      * You may specify a pattern or generator to be used in your config file
-      *   Patterns are any legal regular expression
-              * PATTERN:LOCAL_IP_ADDRESSC:192\.168\.[0-9]{1,3}\.[0-9]{1,3}
-      *    Generators can be any legal generator sequence
-              * GENERATOR:EXTERNAL_IP_ADDRESSC:${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]}
+										
+* Builtin Patterns:
+	* Builtin patterns can be found in the builtins.txt file
+	* You may specify a pattern or generator to be used in your config file
+	* Patterns are any legal regular expression
+		* PATTERN:LOCAL_IP_ADDRESSC:192\.168\.[0-9]{1,3}\.[0-9]{1,3}
+	*    Generators can be any legal generator sequence
+			* GENERATOR:EXTERNAL_IP_ADDRESSC:${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]}
               
-      * Builtin values are used in the config file by escaping the name with ${}
-         * Value:${MAC_ADDRESS}:${MAC_ADDRESS}
-         * Path:tag->name->traceroute-hop-[0-9]+:${LOCAL_IP_ADDRESSC}
+	* Builtin values are used in the config file by escaping the name with ${}
+   * Value:${MAC_ADDRESS}:${MAC_ADDRESS}
+   * Path:tag->name->traceroute-hop-[0-9]+:${LOCAL_IP_ADDRESSC}
  
- Rudementary sanity checking of the specification rules are done. All parsing is simply using regular expressions and not a grammar so all errors may not be caught. Use the -v flag to double check rules when creating a new config file.
+Rudementary sanity checking of the specification rules are done. All parsing is simply using regular expressions and not a grammar so all errors may not be caught. Use the -v flag to double check rules when creating a new config file.
 
-Any values that are identified by path or value are double checked and replaced prior to program completion.
-Efforts are made to avoid replacing substrings by sorting by length prior to full replacement.
+Any values that are identified by path or value are double checked and replaced prior to program completion. Efforts are made to avoid replacing substrings by sorting by length prior to full replacement.
 
- The original use case is to allow network and host scans to be shared or processed off-site
- without revealing potential identifiable, cryptologic or other exploitable information
+The original use case is to allow network and host scans to be shared or processed off-site without revealing potential identifiable, cryptologic or other exploitable information
 
- The intent was to process Nessus scans and allow data sharing and analysis on a public cloud.
- In reality the Nessus scans were highly unstructured and potential data leaks were likely.
- With about 100K existing plugins and almost 100 new ones developed per week, I could not recommend
- this or any anonymization process for this task. Module output is typically free text.
- Follow-on research into using gaussian distributions, n-grams and compression distances
- did not significantly reduce the risk of data leakage
+The intent was to process Nessus scans and allow data sharing and analysis on a public cloud. In reality the Nessus scans were highly unstructured and potential data leaks were likely. With about 100K existing plugins and almost 100 new ones developed per week, I could not recommend this or any anonymization process for this task. Module output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage
 
- As this process can used on more structured data sets, such as evaluating NLP models, and other ML data sets
- I felt it was still useful to place this on github for use by others,
+As this process can used on more structured data sets, such as evaluating NLP models, and other ML data sets, I felt it was still useful to place this on github for use by others,
 
- Special note on human trials and other data collection covered by HIPAA. While this process can be used 
- to replace personal names and dates. Again the XML would have to be highly structured
- The system does not allow for any preservation of statistical distributions
- that would help in any meaningful population analysis. 
- If you have a requirement for this sort of processing please feel free to contact me as I have an 
- interest in the area, specifically the injection of noise and other leakage mitigation techniques.
+Special note on human trials and other data collection covered by HIPAA. While this process can be used to replace personal names and dates. Again the XML would have to be highly structured
+The system does not allow for any preservation of statistical distributions that would help in any meaningful population analysis. 
+If you have a requirement for this sort of processing please feel free to contact me as I have an interest in the area, specifically the injection of noise and other leakage mitigation techniques.
 
- Data leakage may occur as the existing XML document stanzas are not randomized, which could lead
- to an order based attack. If this is a concern please let me know and I can add this feature.
+Data leakage may occur as the existing XML document stanzas are not randomized, which could lead to an order based attack. If this is a concern please let me know and I can add this feature.
