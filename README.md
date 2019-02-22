@@ -14,12 +14,11 @@
  Attribute values and text values may also be replaced in whole or in part via regular expression.
  
  * Configuration File
-  * There are two ways to specify values for replacement
-    * Path 
-      * Path:Report->ReportHost->name:Name_${A}
-    * Value
+   * There are two ways to specify values for replacement
+     * Path 
+       * Path:Report->ReportHost->name:Name_${A}
+     * Value
        * Value:Nikto.*:Nikto-${U[0,Nikto]}
-   
    * The typical rule
      * Path or Value:[Path or Value]:[String pattern to replace]:[String Generator]
         * Path or Value 
@@ -31,10 +30,7 @@
               * Longer paths take precedence
            * The Value specification
               * Value may be any attribute value or text value
-              * Values specified as regular expressions following python conventions
-              
-   * Escape the backslash if needed
-     * Any colons within the specification must be escaped using the backslash \:
+              * Values specified as regular expressions following python conventions         
      * String pattern to replace (optional)
           * You may specify a string pattern to replace a given substring in a value or path
           * If this is not specified the entire text value will be replaced
@@ -58,7 +54,8 @@
            * No Date ${U[0,date]} -> No Date 0, No Date 1, No Date 2
            * ${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]} -> mac address
            * ${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]} -> Local IP Address
-       * Non unique generators. If a generator can not create a unique value an error will occur, as it breaks reversability.							
+       * Non unique generators. If a generator can not create a unique value an error will occur, as it breaks reversability
+* Any colons within the specification must be escaped using the backslash \:
 * Builtin Patterns:
 	* Builtin patterns can be found in the builtins.txt file
 	* You may specify a pattern or generator to be used in your config file
