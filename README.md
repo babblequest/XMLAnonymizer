@@ -10,10 +10,14 @@
 * Reverse file
   * python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
 
+* The values used to reverse the anonymization process are located in anonymized.txt.
+* The value database and config file paths default to anonymized.txt and anonymized.cfg 
+
  Values can be specified as a path consisting of tags, attribute names, attribute values and text values.
  Attribute values and text values may also be replaced in whole or in part via regular expression.
  
  * Configuration File
+   * The sample configuration file is named anonymizer.cfg and is used by default
    * There are two ways to specify values for replacement
      * Path 
        * Path:Report->ReportHost->name:Name_${A}
