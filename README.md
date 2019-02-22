@@ -9,7 +9,6 @@
   * python3 XMLAnonymizer.py -v -f sample.xml -anonymizedfile anonymized.xml
 * Reverse file
   * python3 XMLAnonymizer.py -v -reverse -reversedfile reversed.xml -anonymizedfile anonymized.xml
-
 * The values used to reverse the anonymization process are located in anonymized.txt.
 * The value database and config file paths default to anonymized.txt and anonymized.cfg 
 
