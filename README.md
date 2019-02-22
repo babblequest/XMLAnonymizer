@@ -55,7 +55,7 @@
        * Generators sequences look like this:
            * Name_${A} -> Name_aaaaa
            * No Date ${U[0,date]} -> No Date 0, No Date 1, No Date 2
-           * ${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]}\:${X[00-FF]} -> mac address
+           * ${X[0-F]}${X[0-F]}\:${X[0-F]}${X[0-F]}\:${X[0-F]}${X[0-F]}\: etc... -> mac address
            * ${D[192-223]}.${D[0-255]}.${D[0-255]}.${D[0-254]} -> Local IP Address
        * Non unique generators. If a generator can not create a unique value an error will occur, as it breaks reversability
 * Any colons within the specification must be escaped using the backslash \:
