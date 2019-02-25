@@ -74,11 +74,13 @@ Rudementary sanity checking of the specification rules are done. All parsing is 
 
 Any values that are identified by path or value are double checked and replaced prior to program completion. Efforts are made to avoid replacing substrings by sorting by length prior to full replacement.
 
+The program structure is simplified for readability not speed also there is a bit of defensive programming that involves using a second pass to pick up any items replaced by the first pass that may occur in unanticipated tags or values.
+
 The original use case is to allow network and host scans to be shared or processed off-site without revealing potential infrastructure, cryptologic or other exploitable information
 
-The original use case is to process Nessus scans and allow data sharing and analysis on a public cloud. However, Nessus scans are unstructured and potential data leaks were possible with about 100K existing plugins and almost 100 new ones developed per week, I recommend removing plugin output and double checking any new tags generated. Plugin output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage for free form text output. The sample config file removes plugin output.
+The original use case is to process Nessus scans and allow data sharing and analysis on a public cloud. However, Nessus scans that include plugin text output are unstructured and potential data leaks were possible with about 100K existing plugins and almost 100 new ones developed per week, I recommend removing plugin output and double checking any new tags generated. Plugin output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage for free form text output. The sample config file removes plugin output.
 
-As this process can used on structured data sets, such as evaluating NLP models, and other ML data sets, I felt it was still useful to place this on github for use by others,
+This utility can be used on structured data sets, such as evaluating NLP models, and other ML data sets.
 
 Special note on human trials and other data collection covered by HIPAA. While this process can be used to replace personal names and dates. Again the XML would have to be highly structured The system does not allow for any preservation of statistical distributions that would help in any meaningful population analysis.  If you have a requirement for this sort of processing please feel free to contact me as I have an interest in the area, specifically the injection of noise and other leakage mitigation techniques.
 
