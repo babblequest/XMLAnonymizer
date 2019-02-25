@@ -78,7 +78,7 @@ The program structure is simplified for readability not speed also there is a bi
 
 The original use case is to allow network and host scans to be shared or processed off-site without revealing potential infrastructure, cryptologic or other exploitable information
 
-The original use case is to process Nessus scans and allow data sharing and analysis on a public cloud. However, Nessus scans that include plugin text output are unstructured and potential data leaks were possible with about 100K existing plugins and almost 100 new ones developed per week, I recommend removing plugin output and double checking any new tags generated. Plugin output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage for free form text output. The sample config file removes plugin output.
+Nessus scans that include plugin text output are unstructured and potential data leaks were possible with about 100K existing plugins and almost 100 new ones developed per week, I recommend removing plugin output and double checking any new tags generated. Plugin output is typically free text. Follow-on research into using gaussian distributions, n-grams and compression distances did not significantly reduce the risk of data leakage for free form text output. The sample config file removes plugin output.
 
 This utility can be used on structured data sets, such as evaluating NLP models, and other ML data sets.
 
