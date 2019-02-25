@@ -19,14 +19,8 @@
 ## without revealing potential identifiable, cryptologic or other exploitable information
 
 ## The intent was to process Nessus scans and allow data sharing and analysis on a public cloud.
-## In reality the Nessus scans were highly unstructured and potential data leaks were likely.
-## With about 100K existing plugins and almost 100 new ones developed per week, I could not recommend
-## this or any anonymization process for this task. Module output is typically free text.
-## Follow-on research into using gaussian distributions, n-grams and compression distances
-## did not significantly reduce the risk of data leakage
 
-## As this process can used on more structured data sets, such as evaluating NLP models, and other ML data sets
-## I felt it was still useful to place this on github for use by others,
+## This process can used on more structured data sets, such as evaluating NLP models, and other ML data sets
 
 ## Special note on human trials and other data collection covered by HIPAA. While this process can be used 
 ## to replace personal names and dates. Again the XML would have to be highly structured
